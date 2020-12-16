@@ -42,7 +42,7 @@ export default {
   },
 
   beforeCreate: function(){
-    localStorage.setItem("current user", "laura53")
+    localStorage.setItem("current_user", null)
     this.$router.push({name: "autenticar_usuario"});
   }
 }

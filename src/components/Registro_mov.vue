@@ -20,7 +20,7 @@ export default {
         guardarRegistro: function(){
             
             var datosDelRegistro = {
-                user: localStorage.getItem('current_username'), 
+                user: localStorage.getItem('current_user'), 
                 category: this.tipo, 
                 concept: this.desc, 
                 value: this.valor}

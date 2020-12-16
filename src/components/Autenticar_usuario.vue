@@ -13,7 +13,13 @@ import axios from "axios";
 
 export default {
     name: "Autenticar_usuario",
-
+    data: function(){
+        return{
+            user:this.user,
+            password:this.password
+        }
+        
+    },
     methods:{
         /*usar axios y hacer método get_user en capa lógica. Posteriormente se comparan las contraseñas
       con un condicional en main.py; Si son iguales, el isAuth se valida como true, desaparece la pantalla de login, 
