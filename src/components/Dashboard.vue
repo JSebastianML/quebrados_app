@@ -1,7 +1,9 @@
 <template>
     <div id="Dashboard">
-        <h2>Hola {{user}}</h2>
-        <h2>En este momento tus movimientos dan un neto de ${{netoUsuario}}</h2>
+        <h2>Hola <span id="usuario"> {{user}} </span></h2>
+        <h2>Tu balance es de ${{netoUsuario}}</h2>
+        <h1 v-if="netoUsuario>0" id="positivo">No tienes deudas en el momento</h1>
+        <h1 v-if="netoUsuario<0" id="negativo">Cuida de tu presupuesto! </h1>
     </div>
 </template>
 
@@ -31,7 +33,21 @@ export default {
 </script>
 
 <style>
+#usuario{
+    color:blue;
+}
+
 #Dashboard h2{
+    text-align: center;
+}
+
+#positivo{
+    color: blue;
+    text-align: center;
+}
+
+#negativo{
+    color:red; 
     text-align: center;
 }
 </style>

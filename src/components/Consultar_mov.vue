@@ -1,10 +1,10 @@
 <template>
     <div id="Consultar_mov">
         <h1>Estos son los registros financieros que tienes hasta el momento:</h1>
-        <table>
+        <table border="1">
             <tr>
                 <th>ID Reg</th>
-                <th >Usuario</th>
+                <!--<th >Usuario</th>-->
                 <th >Tipo</th>
                 <th >Descripción</th>
                 <th >Valor</th>
@@ -12,7 +12,7 @@
             </tr>
             <tr v-for="registro in registrosGuardados" :key="registro.id_register">
                 <td >{{registro.id_register}}</td>
-                <td >{{registro.user}}</td>
+                <!--<td >{{registro.user}}</td>-->
                 <td >{{registro.category}}</td>
                 <td >{{registro.concept}}</td>
                 <td >{{registro.value}}</td>
