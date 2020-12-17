@@ -5,6 +5,7 @@
                 <button v-on:click="irADashboard"><strong> Dashboard </strong></button>
                 <button v-on:click="irARegistro"> <strong>Registrar movimientos</strong></button>
                 <button v-on:click="irAConsulta"><strong> Ver movimientos </strong></button>
+                <button v-on:click="cerrarSesion"><strong> Cerrar sesión </strong></button>
             </nav>
         </div>
         <div id="content">
@@ -66,6 +67,10 @@ export default {
                 alert("No se pudo realizar el registro");
             })
             this.$router.push({name: "registro_mov"});
+        },
+        cerrarSesion: function(){
+            this.$router.push({name: "autenticar_usuario"});
+            localStorage.setItem('current_user', null)
         }
     }
 }
