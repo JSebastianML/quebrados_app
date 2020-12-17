@@ -31,7 +31,7 @@ const router = new vueRouter({
             component: Autenticar_usuario
         },
         {
-            path: '/user/dashboard',
+            path: '/user/dashboard/:user',
             name: "dashboard",
             component: Dashboard
         },
