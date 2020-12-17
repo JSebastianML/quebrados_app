@@ -2,11 +2,6 @@
   <div id="app">
     <div class="header">
       <h1>Quebrados.com</h1>
-      <nav>
-        <button v-on:click="irADashboard"><strong> Dashboard </strong></button>
-        <button v-on:click="irARegistro"> <strong>Registrar movimientos</strong></button>
-        <button v-on:click="irAConsulta"><strong> Ver movimientos </strong></button>
-      </nav>
     </div>
     <div class="main-component">
       <router-view></router-view>
@@ -59,16 +54,21 @@ body{
   width: 100%;
   height: 10vh;
   min-height: 100px;
-  background-color:#060606;
+  background-color:#063286;
   color:#E5E7E9 ;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-content: center;
 }
 .header h1{
   width: 30%;
   text-align: center;
-  font-size: 50px;
+  font-size: 70px;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+  left:30%;
+  bottom: 7vh;
 }
 .header h2{
   font-size: 23px;
@@ -110,7 +110,7 @@ body{
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 10vh;
+  height: 5vh;
   min-height: 100px;
   background-color: #060606 ;
   color: #E5E7E9;
@@ -122,4 +122,9 @@ body{
   justify-content: center;
   align-items: center;
 }
+
+#main-component{
+  background-image: url('https://1685481792.rsc.cdn77.org/wp-content/uploads/2016/05/finance-845x321.jpg');
+}
+
 </style>

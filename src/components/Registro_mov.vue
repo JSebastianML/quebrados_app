@@ -1,17 +1,26 @@
 <template>
     <div id="Registro_mov">
-        <h1 id="usuario">{{user}}</h1>
-        <h1>Registra tus movimientos! </h1>
-        <h3>Por favor indica si es ingreso o egreso:</h3>
-        <select v-model="tipo">
-            <option value="ingreso" selected>Ingreso</option>
-            <option value="egreso" >Egreso</option>
-        </select>
-        <h3>Descripción:</h3>
-        <input type="text" style="width:30vw" v-model="desc"/><br/>
-        <h3>Valor:</h3>
-        <input type="text" v-model="valor"/><br/>
-        <button v-on:click="guardarRegistro">Guardar registro</button>
+        <div id="navegacion">
+            <nav>
+                <button v-on:click="irADashboard"><strong> Dashboard </strong></button>
+                <button v-on:click="irARegistro"> <strong>Registrar movimientos</strong></button>
+                <button v-on:click="irAConsulta"><strong> Ver movimientos </strong></button>
+            </nav>
+        </div>
+        <div id="content">
+            <h2 id="usuario">{{user}}</h2>
+            <h2>¡Registra tus movimientos! </h2>
+            <h3>Por favor indica si es ingreso o egreso:</h3>
+            <select v-model="tipo">
+                <option value="ingreso" selected>Ingreso</option>
+                <option value="egreso" >Egreso</option>
+            </select>
+            <h3>Descripción:</h3>
+            <input type="text" style="width:30vw" v-model="desc"/><br/>
+            <h3>Valor:</h3>
+            <input type="text" v-model="valor"/><br/>
+            <button v-on:click="guardarRegistro">Guardar registro</button>
+        </div>
     </div>
 </template>
 
@@ -26,6 +35,21 @@ export default {
         }
     },
     methods:{
+        irARegistro: function(){
+            if(this.$route.name != "registro_mov"){
+            this.$router.push({name: "registro_mov"});
+            }    
+        }, 
+        irADashboard: function(){
+            if(this.$route.name != "dashboard"){
+            this.$router.push({name: "dashboard"});
+            }    
+        }, 
+        irAConsulta: function(){
+            if(this.$route.name != "consultar_mov"){
+            this.$router.push({name: "consultar_mov"});
+            }    
+        },
         guardarRegistro: function(){
             
             var datosDelRegistro = {
@@ -48,40 +72,55 @@ export default {
 </script>
 
 <style>
-#Registro_mov input{
+#content{
+    text-align: center;
+}
+
+#content input{
     height: 40%;
-    position: relative;
-    left: 30px;
-    bottom: 10px;
     font-size: 100%;
 }
 
-#Registro_mov select{
+#content select{
     height: 40%;
-    position: relative;
-    left: 30px;
-    bottom: 10px;
     font-size: 100%;
 }
 
 #usuario{
-    color:blue;
+    color:#063286;
 }
 
-#Registro_mov h1{
-    position: relative;
-    left: 10px;
-}
-
-#Registro_mov h3{
-    position: relative;
-    left: 20px;
-}
-#Registro_mov button{
+#content button{
     height: 30%;
-    position: relative;
-    left: 30px;
-    top: 10px;
     font-size: 100%;
+    position: relative;
+    top: 2vh;
+}
+#navegacion{
+    background: rgb(232, 240, 246) ;
+    text-align: center;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navegacion nav button{
+    font-size: 100%;
+    color:#181717;
+    background: rgb(232, 240, 246);
+    border: 1px solid rgb(232, 240, 246);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+#navegacion nav button:hover{
+  background: #181717;
+  color: rgb(232, 240, 246);
+  border: solid ;
+  height: 45%;
+  border-top-width: thin;
+  border-bottom-width: thin;
+  border-right-width: thin;
+  border-left-width: thin;
 }
 </style>

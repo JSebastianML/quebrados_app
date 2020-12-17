@@ -1,7 +1,15 @@
 <template>
     <div id="Consultar_mov">
-        <h1>Estos son los registros financieros que tienes hasta el momento:</h1>
-        <table border="1">
+        <div id="navegacion">
+            <nav>
+                <button v-on:click="irADashboard"><strong> Dashboard </strong></button>
+                <button v-on:click="irARegistro"> <strong>Registrar movimientos</strong></button>
+                <button v-on:click="irAConsulta"><strong> Ver movimientos </strong></button>
+            </nav>
+        </div>
+        <div>
+        <h2>Estos son los registros financieros que tienes hasta el momento:</h2>
+        <table border="5">
             <tr>
                 <th>ID Reg</th>
                 <!--<th >Usuario</th>-->
@@ -19,6 +27,7 @@
                 <td >{{registro.fecha}}</td>
             </tr>
         </table>
+        </div>
     </div>
 </template>
 
@@ -30,6 +39,23 @@ export default {
         return{
             user: localStorage.getItem('current_user'),
             registrosGuardados: []
+        }
+    },
+    methods:{
+        irARegistro: function(){
+            if(this.$route.name != "registro_mov"){
+            this.$router.push({name: "registro_mov"});
+            }    
+        }, 
+        irADashboard: function(){
+            if(this.$route.name != "dashboard"){
+            this.$router.push({name: "dashboard"});
+            }    
+        }, 
+        irAConsulta: function(){
+            if(this.$route.name != "consultar_mov"){
+            this.$router.push({name: "consultar_mov"});
+            }    
         }
     },
     created: function(){
@@ -51,5 +77,36 @@ export default {
 }
 #Consultar_mov table{      
     margin: auto;
+}
+#navegacion{
+    background: rgb(232, 240, 246) ;
+    text-align: center;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navegacion nav button{
+    font-size: 100%;
+    color:#181717;
+    background: rgb(232, 240, 246);
+    border: 1px solid rgb(232, 240, 246);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+#navegacion nav button:hover{
+  background: #181717;
+  color: rgb(232, 240, 246);
+  border: solid ;
+  height: 45%;
+  border-top-width: thin;
+  border-bottom-width: thin;
+  border-right-width: thin;
+  border-left-width: thin;
+}
+table, th, td {
+    margin: 10px;
+    padding: 5px;
 }
 </style>
