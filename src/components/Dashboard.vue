@@ -66,7 +66,7 @@ export default {
 
 <style>
 #usuario{
-    color:blue;
+    color:#063286;
     
 }
 
