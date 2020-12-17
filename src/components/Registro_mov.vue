@@ -34,7 +34,7 @@ export default {
                 concept: this.desc, 
                 value: this.valor}
 
-            axios.post("http://localhost:8000/register/create", datosDelRegistro)
+            axios.post("https://quebrados-api.herokuapp.com/register/create", datosDelRegistro)
             .then(response => {
                 alert("Registro guardado correctamente");
             })

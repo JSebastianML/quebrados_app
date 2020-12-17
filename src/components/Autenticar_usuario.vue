@@ -36,7 +36,7 @@ export default {
                 password: this.password
             }
 
-            axios.post("http://localhost:8000/user/login", datosDeIngreso)
+            axios.post("https://quebrados-api.herokuapp.com/user/login", datosDeIngreso)
             .then(response => {
 
                 var datosRespuesta = response.data

@@ -34,7 +34,7 @@ export default {
     },
     created: function(){
         let mivariable = this;
-        axios.get("http://localhost:8000/register/find/"+this.user)
+        axios.get("https://quebrados-api.herokuapp.com/register/find/"+this.user)
         .then(response =>{
             mivariable.registrosGuardados=response.data
         })
