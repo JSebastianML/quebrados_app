@@ -5,6 +5,11 @@
         <h3>Contraseña:</h3>
         <input type="text" placeholder="Contraseña" v-model="password"/><br />
         <button v-on:click="autenticar"> Iniciar sesión </button>
+        <div>
+            <h4>¿No te ha registrado aún?</h4>
+            <button v-on:click="irACrearUsuario">Crear una cuenta</button>
+        </div>
+
     </div>
 </template>
 
@@ -49,6 +54,9 @@ export default {
             .catch((error) => {
                 alert("No fue posible validar los datos de ingreso");
             })
+        },
+        irACrearUsuario: function(){
+            this.$router.push({name: "registrar_usuario"})
         }
     }
 }
@@ -58,6 +66,24 @@ export default {
 #Autenticar_usuario{
     text-align: center;
 }
+
+#Autenticar_usuario div{
+    text-align: center;
+    position: relative;
+    top: 20px; 
+}
+
+#Autenticar_usuario div h4{
+    text-align: center;
+    position: relative;
+    left: 25px;
+}
+#Autenticar_usuario div button{
+    
+    position: relative;
+    bottom: 15px;
+}
+
 #Autenticar_usuario h3{
     position: relative;
     left: 25px;

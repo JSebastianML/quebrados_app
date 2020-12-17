@@ -3,6 +3,7 @@ import Registro_mov from './components/Registro_mov'
 import Consultar_mov from './components/Consultar_mov'
 import Autenticar_usuario from './components/Autenticar_usuario'
 import Dashboard from './components/Dashboard'
+import Registrar_usuario from './components/Registrar_usuario'
 import App from './App'
 
 const router = new vueRouter({
@@ -33,6 +34,11 @@ const router = new vueRouter({
             path: '/user/dashboard',
             name: "dashboard",
             component: Dashboard
+        },
+        {
+            path: '/user/register',
+            name: "registrar_usuario",
+            component: Registrar_usuario
         }
     ]
 })
