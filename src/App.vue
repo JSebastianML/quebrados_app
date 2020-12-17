@@ -67,7 +67,7 @@ body{
   justify-content: space-between;
   text-align: center;
   position: relative;
-  left:30%;
+  left:32%;
   bottom: 7vh;
 }
 .header h2{
