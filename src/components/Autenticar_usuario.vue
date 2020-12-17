@@ -6,7 +6,7 @@
         <input type="text" placeholder="Contraseña" v-model="password"/><br />
         <button v-on:click="autenticar"> Iniciar sesión </button>
         <div>
-            <h4>¿No te ha registrado aún?</h4>
+            <h4>¿No te has registrado aún?</h4>
             <button v-on:click="irACrearUsuario">Crear una cuenta</button>
         </div>
 
