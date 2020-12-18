@@ -18,24 +18,6 @@ export default {
 
   components: {},
 
-  methods: {
-    irARegistro: function(){
-      if(this.$route.name != "registro_mov"){
-        this.$router.push({name: "registro_mov"});
-      }    
-    }, 
-    irADashboard: function(){
-      if(this.$route.name != "dashboard"){
-        this.$router.push({name: "dashboard"});
-      }    
-    }, 
-    irAConsulta: function(){
-      if(this.$route.name != "consultar_mov"){
-        this.$router.push({name: "consultar_mov"});
-      }    
-    }
-  },
-
   beforeCreate: function(){
     localStorage.setItem("current_user", null)
     this.$router.push({name: "autenticar_usuario"});
@@ -73,35 +55,12 @@ body{
 .header h2{
   font-size: 23px;
 }
-.header nav {
-  height: 100%;
-  width: 45%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 20px;
-}
-.header nav button{
-  font-size: 100%;
-  color:#FFA500;
-  background: #060606;
-  height: 45%;
-  border-style: none;
-}
-
-.header nav button:hover{
-  color:#FFA500;
-  background: #060606;
-  border: solid ;
-  height: 45%;
-  border-top-width: thin;
-  border-bottom-width: thin;
-  border-right-width: thin;
-  border-left-width: thin;
-}
 
 .main-component{
-  height: 75vh;
+  background-image: url('https://www.eluniverso.com/sites/default/files/styles/powgallery_1280/public/fotos/2020/09/finanzas.jpg?itok=bDXv3wTe');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
   margin: 0%;
   padding: 0%;
   background-color: #FDFEFE;
@@ -121,10 +80,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#main-component{
-  background-image: url('https://1685481792.rsc.cdn77.org/wp-content/uploads/2016/05/finance-845x321.jpg');
 }
 
 </style>
