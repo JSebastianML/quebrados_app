@@ -44,7 +44,7 @@ export default {
                 if(datosRespuesta.respuesta==true){
                     alert("Autenticado correctamente")
                     localStorage.setItem("current_user", this.user)
-                    this.$router.push({name: "dashboard"});
+                    this.$router.push({name: "dashboard", params:{user:this.user}});
                 }
                 else{
                     alert("Usuario o contraseña incorrecta")

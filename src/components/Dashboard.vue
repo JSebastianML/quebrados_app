@@ -5,6 +5,7 @@
                 <button v-on:click="irADashboard"><strong> Dashboard </strong></button>
                 <button v-on:click="irARegistro"> <strong>Registrar movimientos</strong></button>
                 <button v-on:click="irAConsulta"><strong> Ver movimientos </strong></button>
+                <button v-on:click="irAOpciones"><strong> Opciones </strong></button>
                 <button v-on:click="cerrarSesion"><strong> Cerrar sesión </strong></button>
             </nav>
         </div>
@@ -15,6 +16,7 @@
             <h1 v-if="netoUsuario<0" id="negativo">Cuida de tu presupuesto! </h1>
         </div>
     </div>
+    
 </template>
 
 <script>
@@ -26,6 +28,8 @@ export default {
         return{
             user: localStorage.getItem('current_user'),
             netoUsuario: 0,
+            ingreso: 0,
+            egreso:0
         }
     },
 
@@ -37,14 +41,20 @@ export default {
         }, 
         irADashboard: function(){
             if(this.$route.name != "dashboard"){
-            this.$router.push({name: "dashboard"});
+            this.$router.push({name: "dashboard", params:{user:this.user}});
             }    
         }, 
         irAConsulta: function(){
             if(this.$route.name != "consultar_mov"){
-            this.$router.push({name: "consultar_mov"});
+            this.$router.push({name: "consultar_mov", params:{user:this.user}});
             }    
         },
+        irAOpciones: function(){
+            if(this.$route.name != "opciones"){
+                this.$router.push({name: "opciones",});
+            }
+        },
+        
         cerrarSesion: function(){
             this.$router.push({name: "autenticar_usuario"});
             localStorage.setItem('current_user', null)

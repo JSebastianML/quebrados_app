@@ -5,6 +5,7 @@
                 <button v-on:click="irADashboard"><strong> Dashboard </strong></button>
                 <button v-on:click="irARegistro"> <strong>Registrar movimientos</strong></button>
                 <button v-on:click="irAConsulta"><strong> Ver movimientos </strong></button>
+                <button v-on:click="irAOpciones"><strong> Opciones </strong></button>
                 <button v-on:click="cerrarSesion"><strong> Cerrar sesión </strong></button>
             </nav>
         </div>
@@ -29,6 +30,10 @@
             </tr>
         </table>
         </div>
+        <h2>¡Eliminar movimiento! </h2>
+            <h3>Por favor introduce el id del registro que deseas eliminar:</h3>
+            <input type="text" style="width:30vw" v-model="id_register"/><br/>
+            <button v-on:click="eliminarRegistro">Eliminar registro</button>
     </div>
 </template>
 
@@ -39,7 +44,8 @@ export default {
     data: function(){
         return{
             user: localStorage.getItem('current_user'),
-            registrosGuardados: []
+            registrosGuardados: [],
+            id_register: this.id_register
         }
     },
     methods:{
@@ -50,14 +56,32 @@ export default {
         }, 
         irADashboard: function(){
             if(this.$route.name != "dashboard"){
-            this.$router.push({name: "dashboard"});
+            this.$router.push({name: "dashboard", params:{user:this.user}});
             }    
         }, 
         irAConsulta: function(){
             if(this.$route.name != "consultar_mov"){
-            this.$router.push({name: "consultar_mov"});
+            this.$router.push({name: "consultar_mov", params:{user:this.user}});
             }    
         },
+        irAOpciones: function(){
+            if(this.$route.name != "opciones"){
+                this.$router.push({name: "opciones"});
+            }
+        },
+        eliminarRegistro: function(){
+            var datosDeEliminacion = { 
+                id_register: this.id_register,
+                user: this.user}
+
+            axios.post("https://quebrados-api.herokuapp.com/register/delete", datosDeEliminacion)
+            .then(response => {
+                alert(response.data.respuesta);
+            })
+            .catch((error) => {
+                alert("Error de petición");
+            })
+        },    
         cerrarSesion: function(){
             this.$router.push({name: "autenticar_usuario"});
             localStorage.setItem('current_user', null)

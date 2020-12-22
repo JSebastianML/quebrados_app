@@ -4,6 +4,7 @@ import Consultar_mov from './components/Consultar_mov'
 import Autenticar_usuario from './components/Autenticar_usuario'
 import Dashboard from './components/Dashboard'
 import Registrar_usuario from './components/Registrar_usuario'
+import Opciones from './components/Opciones'
 import App from './App'
 
 const router = new vueRouter({
@@ -39,7 +40,12 @@ const router = new vueRouter({
             path: '/user/register',
             name: "registrar_usuario",
             component: Registrar_usuario
-        }
+        },
+        {
+            path: '/user/options/:user',
+            name: "opciones",
+            component: Opciones
+        },
     ]
 })
 export default router

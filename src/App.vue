@@ -59,7 +59,7 @@ body{
 .main-component{
   background-image: url('https://www.eluniverso.com/sites/default/files/styles/powgallery_1280/public/fotos/2020/09/finanzas.jpg?itok=bDXv3wTe');
   background-size: 100%;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   height: 100vh;
   margin: 0%;
   padding: 0%;

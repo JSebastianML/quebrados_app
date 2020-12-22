@@ -5,6 +5,7 @@
                 <button v-on:click="irADashboard"><strong> Dashboard </strong></button>
                 <button v-on:click="irARegistro"> <strong>Registrar movimientos</strong></button>
                 <button v-on:click="irAConsulta"><strong> Ver movimientos </strong></button>
+                <button v-on:click="irAOpciones"><strong> Opciones </strong></button>
                 <button v-on:click="cerrarSesion"><strong> Cerrar sesión </strong></button>
             </nav>
         </div>
@@ -32,7 +33,10 @@ export default {
     name: "Registro_mov",
     data: function(){
         return{
-            user: localStorage.getItem('current_user')
+            user: localStorage.getItem('current_user'),
+            tipo: "",
+            desc: "",
+            valor: 0
         }
     },
     methods:{
@@ -43,12 +47,12 @@ export default {
         }, 
         irADashboard: function(){
             if(this.$route.name != "dashboard"){
-            this.$router.push({name: "dashboard"});
+            this.$router.push({name: "dashboard", params:{user:this.user}});
             }    
         }, 
         irAConsulta: function(){
             if(this.$route.name != "consultar_mov"){
-            this.$router.push({name: "consultar_mov"});
+            this.$router.push({name: "consultar_mov", params:{user:this.user}});
             }    
         },
         guardarRegistro: function(){
@@ -67,6 +71,12 @@ export default {
                 alert("No se pudo realizar el registro");
             })
             this.$router.push({name: "registro_mov"});
+        },
+        irAOpciones: function(){
+            if(this.$route.name != "opciones"){
+                this.$router.push({name: "opciones"});
+            }
+            
         },
         cerrarSesion: function(){
             this.$router.push({name: "autenticar_usuario"});
